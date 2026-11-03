@@ -1,5 +1,5 @@
 ﻿using System;
-
+// Komentar
 namespace Vezba08a
 {
     class Kompleksni // -3.1 - 4.1i

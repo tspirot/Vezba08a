@@ -12,9 +12,9 @@ namespace Vezba08a
         {
             get { return Math.Sqrt(re * re + im * im); }
         }
-        public double Argument()
+        public double Argument
         {
-            return Math.Atan2(im, re);
+            get { return Math.Atan2(im, re); }
         }
         public Kompleksni()
         {
@@ -46,10 +46,10 @@ namespace Vezba08a
         // da bi smo mogli da poredimo dva kompleksna broja
         public override bool Equals(object obj)
         {
-            if (obj == null || GetType() != obj.GetType())
+            if (obj == null || this.GetType() != obj.GetType())
                 return false;
             Kompleksni k = (Kompleksni)obj;
-            return re == k.re && im == k.im;
+            return this.re == k.re && this.im == k.im;
         }
         // GetHashCode() metoda je nasledjena iz klase Object,
         // pa je potrebno da je redefinisemo
@@ -90,19 +90,20 @@ namespace Vezba08a
         static void Main(string[] args)
         {
             Kompleksni u1 = new Kompleksni(3.1, 4.1);
-            Kompleksni u2 = new Kompleksni(3.0, 4.1);
+            Kompleksni u2 = new Kompleksni(3.1, 4.1);
             Console.WriteLine(u2.ToString());
             Kompleksni u = u1 - u2;//2.1+3.1i
             Console.WriteLine(u.ToString());
             if (u1 == u2)
-                Console.Write("Jednaki");
+                Console.WriteLine("Jednaki");
             if (u1 != u2)
-                Console.Write("Nisu jednaki");
+                Console.WriteLine("Nisu jednaki");
             // primena Equals() metode
             if (u1.Equals(u2))
-                Console.Write("Jednaki");
+                Console.WriteLine("Jednaki");
             // primena GetHashCode() metode
             Console.WriteLine(u1.GetHashCode());
+            Console.WriteLine(u2.GetHashCode());
 
         }
     }
